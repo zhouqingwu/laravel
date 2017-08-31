@@ -26,7 +26,9 @@ Route::get('/about', function () {
 });
 
 Route::get('/tasks', 'TasksController@index');
+Route::get('/tasks/create', 'TasksController@create');
 Route::get('/tasks/{task}', 'TasksController@show');
+Route::post('/tasks', 'TasksController@store');
 
 /**
  * Card 

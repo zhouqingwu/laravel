@@ -4,6 +4,17 @@
 
 <h1>Dashboard</h1>
 <h2>Tasks List</h2>
+
+@if (session('status'))
+    @component('layouts.alert')
+        @slot('title')
+            Alert
+        @endslot
+        {{ session('status') }}
+    @endcomponent
+@endif
+
+
 <div class="table-responsive">
     <table class="table table-striped">
         <thead>
@@ -31,6 +42,7 @@
             @endforeach
         </tbody>
     </table>
+    <a href="/tasks/create" class="button-primary">Add new</a>    
 </div>
 </div>
 @endsection
