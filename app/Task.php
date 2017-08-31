@@ -11,4 +11,15 @@ class Task extends Model
     {
     	return $query->where('completed', 0);
     }
+
+    public function comments()
+    {
+    	return $this->hasMany(Comment::class);
+    }
+
+    public function addComment($body)
+    {
+        $this->comments()->create(compact('body'));
+    } 
+
 }

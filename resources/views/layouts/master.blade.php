@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/dashboard.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('/css/app.css') }}">
+{{--     <link rel="stylesheet" type="text/css" href="{{ asset('/css/app.css') }}"> --}}
     <title>App Name - @yield('title')</title>
 </head>
 
