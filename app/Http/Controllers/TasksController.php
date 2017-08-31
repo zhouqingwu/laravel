@@ -42,7 +42,7 @@ class TasksController extends Controller
         $this->validate(request(), [
             'body' => 'required|max:20|min:10'
         ]);
-        
+
         Task::create(request(['body']));
 
         return redirect('tasks')->with('status', 'Task created!');
@@ -55,9 +55,9 @@ class TasksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Task $task)
     {
-        $task = Task::find($id);
+        // $task = Task::find($id);
         return view('tasks.show', compact('task'));
     }
 

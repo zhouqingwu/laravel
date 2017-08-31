@@ -15,8 +15,8 @@
 		<ul class="list-group list-group-flush">
 			<li class="list-group-item">{{ $task->completed }}</li>
 			<li class="list-group-item">{{ $task->body }}</li>
-			<li class="list-group-item">{{ $task->created_at }}</li>
-			<li class="list-group-item">{{ $task->updated_at }}</li>
+			<li class="list-group-item">{{ $task->created_at->toDayDateTimeString() }}</li>
+			<li class="list-group-item">{{ $task->updated_at->diffForHumans() }}</li>
 		</ul>
 		<p>
 		    <a href="/tasks" class="card-link">All</a>
