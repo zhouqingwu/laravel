@@ -31,11 +31,13 @@
     <div class="container">
 
       <div class="row">
-        @yield('content')                       
+        @yield('content')
+        @include('blog.sidebar')                
       </div><!-- /.row -->
 
     </div><!-- /.container -->
-    
+
+
     @include('blog.footer')
 
 

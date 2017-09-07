@@ -64,6 +64,4 @@
 </div>
 <!-- /.blog-main -->
 
-@include('blog.sidebar')
-
 @stop
