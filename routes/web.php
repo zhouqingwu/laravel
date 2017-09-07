@@ -36,3 +36,8 @@ Route::post('/tasks/{task}/comments', 'CommentsController@store');
 
 Route::get('/cards', 'CardController@index');
 Route::get('/cards/{id}', 'CardController@show');
+
+/**
+ * Blog Posts
+ */
+ Route::get('/posts', 'PostController@index');
