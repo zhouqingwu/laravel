@@ -4,6 +4,9 @@
 <div class="col-sm-8 blog-main">
 	<h1>Create a Post</h1>
 	<hr>
+    
+    @include('blog.error')
+
     <form method="POST" action="/posts">
         {{ csrf_field() }}
         <div class="form-group row">
