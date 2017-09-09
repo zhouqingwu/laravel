@@ -14,7 +14,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::orderBy('id', 'desc')->get();
         return view('posts.index', compact('posts'));
     }
 
@@ -48,13 +48,13 @@ class PostController extends Controller
 
     /**
      * Display the specified resource.
-     *
+     * change: user Model bind instead
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Post $post)
     {
-        $post = Post::findOrFail($id);
+        // $post = Post::findOrFail($id);        
         return view('posts.post', compact('post'));
     }
 
