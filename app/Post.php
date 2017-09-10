@@ -8,4 +8,13 @@ class Post extends Model
     {
         return $this->hasMany(Discuss::class);
     }
+
+    public function addDiscuss($body)
+    {
+        // Discuss::create([
+        //     'post_id' => $this->id,
+        //     'body' => $body
+        // ]);
+        $this->discusses()->create(compact('body'));
+    }
 }
