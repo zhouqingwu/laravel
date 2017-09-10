@@ -11,6 +11,11 @@ class Post extends Model
         return $this->hasMany(Discuss::class);
     }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }    
+
     public function addDiscuss($body)
     {
         // Discuss::create([
