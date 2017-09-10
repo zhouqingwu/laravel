@@ -14,8 +14,11 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderBy('id', 'desc')->get();
-        return view('posts.index', compact('posts'));
+        $posts = Post::latest()->filter(request(['month', 'year']))->get();
+
+        $archives = Post::selectRaw('year(created_at) year, monthname(created_at) month, count(*) published')->groupBy('year', 'month')->orderByRaw('min(created_at) desc')->get()->toArray();
+
+        return view('posts.index', compact('posts', 'archives'));
     }
 
     /**
@@ -54,7 +57,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        // $post = Post::findOrFail($id);        
+        // $post = Post::findOrFail($id);
         return view('posts.post', compact('post'));
     }
 
