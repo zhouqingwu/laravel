@@ -42,4 +42,9 @@ class User extends Authenticatable
     {
         $this->posts()->save($post);
     }
+
+    public function addDiscuss(Discuss $discuss)
+    {
+        $this->discusses()->save($discuss);
+    }
 }
