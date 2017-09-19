@@ -15,7 +15,7 @@
             @foreach ($post->discusses as $discuss)
             <li class="list-group-item">
                 <span class="label label-default label-pill pull-right">
-                	<strong>{{ $discuss->created_at->diffForHumans() }}</strong>
+                    <strong>{{ $discuss->created_at->diffForHumans() }}</strong>
                 </span>
                 <i>{{ $discuss->body }}</i>
             </li>

@@ -7,26 +7,26 @@
     
     @include('blog.error')
 
-    <form method="POST" action="/posts">
-        {{ csrf_field() }}
-        <div class="form-group row">
-            <label for="title" class="col-sm-2 form-control-label">Title</label>
-            <div class="col-sm-10">
-                <input type="text" name="title" id="title" class="form-control" placeholder="Title">
-            </div>
+<form method="POST" action="/posts">
+    {{ csrf_field() }}
+    <div class="form-group row">
+    <label for="title" class="col-sm-2 form-control-label">Title</label>
+        <div class="col-sm-10">
+            <input type="text" name="title" id="title" class="form-control" placeholder="Title">
         </div>
-        <div class="form-group row">
-            <label for="body" class="col-sm-2 form-control-label">Body</label>
-            <div class="col-sm-10">
-                <textarea name="body" id="body" class="form-control" placeholder="Body"></textarea>
-            </div>
+    </div>
+    <div class="form-group row">
+        <label for="body" class="col-sm-2 form-control-label">Body</label>
+        <div class="col-sm-10">
+            <textarea name="body" id="body" class="form-control" placeholder="Body"></textarea>
         </div>
-        <div class="form-group row">
-            <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-primary">Publish</button>
-            </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-primary">Publish</button>
         </div>
-    </form>
-</div>
+    </div>
+</form>
+</dv>
 
 @stop
