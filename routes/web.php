@@ -11,6 +11,19 @@
 |
  */
 
+// Service Containner :: use config every time
+// App::singleton('App\Billing\Stripe', function () {
+//    return new \App\Billing\Stripe(config('services.stripe.key'));
+// });
+
+// $stripe = resolve('App\Billing\Stripe');
+// or below
+// $stripe = App::make('App\Billing\Stripe');
+// or below
+//$stripe = app('App\Billing\Stripe');
+// or below
+ 
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -31,7 +44,7 @@ Route::get('/tasks/{task}', 'TasksController@show');
 Route::post('/tasks', 'TasksController@store');
 Route::post('/tasks/{task}/comments', 'CommentsController@store');
 /**
- * Card 
+ * Card
  */
 
 Route::get('/cards', 'CardController@index');
@@ -40,18 +53,17 @@ Route::get('/cards/{id}', 'CardController@show');
 /**
  * Blog Posts
  */
- Route::get('/posts', 'PostController@index')->name('home');
- Route::get('/posts/create', 'PostController@create');
- Route::get('/posts/{post}', 'PostController@show');
- Route::post('/posts', 'PostController@store');
- Route::post('/posts/{post}/discuss', 'DiscussController@store');
+Route::get('/posts', 'PostController@index')->name('home');
+Route::get('/posts/create', 'PostController@create');
+Route::get('/posts/{post}', 'PostController@show')->where('id', '[0-9]+');
+Route::post('/posts', 'PostController@store');
+Route::post('/posts/{post}/discuss', 'DiscussController@store');
 
- /*
- *	Registration and Login
+/*
+ *    Registration and Login
  */
 Route::get('/register', 'RegistrationController@create');
 Route::post('/register', 'RegistrationController@store');
 Route::get('/login', 'SessionsController@create');
 Route::post('/login', 'SessionsController@store');
 Route::get('/logout', 'SessionsController@destroy');
-
