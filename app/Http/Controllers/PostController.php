@@ -52,6 +52,7 @@ class PostController extends Controller
         //     'body' =>request('body'),
         //     'user_id' => auth()->user()->id
         // ]);
+        session()->flash('message', 'Post was created');
 
         return redirect('posts')->with('status', 'Post created!');
     }

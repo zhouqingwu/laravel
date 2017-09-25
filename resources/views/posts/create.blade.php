@@ -27,6 +27,6 @@
         </div>
     </div>
 </form>
-</dv>
+</div>
 
 @stop
