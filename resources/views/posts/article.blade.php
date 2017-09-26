@@ -12,8 +12,8 @@
         @endif
     </p>
 
-    <div class="blog-post-meta">
-        @if(isset($post->tags))
+    <div class="col-8 blog-main">
+        @if(count($post->tags))
             @foreach($post->tags as $tag)       
                 <a href="/posts/tags/{{ $tag->name }}">
                     <span class="badge badge-info">{{ $tag->name }}</span>
