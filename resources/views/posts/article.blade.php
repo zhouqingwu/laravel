@@ -1,3 +1,4 @@
+
 @if($post->created_at)
 <div class="blog-post">
     <h2 class="blog-post-title">
@@ -6,8 +7,22 @@
     </a>
     </h2>
     <p class="blog-post-meta">
-        {{-- {{ $post->created_at->toFormattedDateString() }} by <a href="#">{{ $post->user->name }}</a> --}}
+        @if(isset($post->user->name))
+        {{ $post->created_at->toFormattedDateString() }} by <a href="#">{{ $post->user->name }}</a>
+        @endif
     </p>
+
+    <div class="blog-post-meta">
+        @if(isset($post->tags))
+            @foreach($post->tags as $tag)       
+                <a href="/posts/tags/{{ $tag->name }}">
+                    <span class="badge badge-info">{{ $tag->name }}</span>
+                </a>                
+            @endforeach         
+        @endif
+    </div>
+    <br>
+
     {{ $post->body }}
     <hr>
     <div class="comments">

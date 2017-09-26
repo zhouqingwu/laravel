@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
 use App\Billing\Stripe;
+use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -14,8 +14,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        // return $archives;
+        // view()->composer('blog.siderbar', function ($view) {
+        //     $view->with(compact('archives', 'tags'));
+        // });
+
         view()->composer('blog.sidebar', function ($view) {
-            $view->with('archives', \App\Post::archives());
+            $archives = \App\Post::archives();
+            $tags = \App\Tag::has('posts')->pluck('name');
+            $view->with(compact('archives', 'tags'));
         });
     }
 
@@ -27,7 +34,7 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         // register billing service
-        $this->app->singleton(Stripe::class, function(){
+        $this->app->singleton(Stripe::class, function () {
             return new Stripe(config('services.stripe.key'));
         });
 

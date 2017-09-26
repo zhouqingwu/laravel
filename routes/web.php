@@ -58,6 +58,7 @@ Route::get('/posts/create', 'PostController@create');
 Route::get('/posts/{post}', 'PostController@show')->where('id', '[0-9]+');
 Route::post('/posts', 'PostController@store');
 Route::post('/posts/{post}/discuss', 'DiscussController@store');
+Route::get('/posts/tags/{tag}', 'TagsController@index');
 
 /*
  *    Registration and Login
